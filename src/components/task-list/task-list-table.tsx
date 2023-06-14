@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useMemo } from "react";
 import styles from "./task-list-table.module.css";
 import { Task } from "../../types/public-types";
@@ -89,7 +90,7 @@ export const TaskListTableDefault: React.FC<{
                 <div>{t.name}</div>
               </div>
             </div>
-            <div
+            {/* <div
               className={styles.taskListCell}
               style={{
                 minWidth: rowWidth,
@@ -106,7 +107,7 @@ export const TaskListTableDefault: React.FC<{
               }}
             >
               &nbsp;{toLocaleDateString(t.end, dateTimeOptions)}
-            </div>
+            </div> */}
           </div>
         );
       })}

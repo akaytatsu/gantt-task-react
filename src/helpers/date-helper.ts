@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Task, ViewMode } from "../types/public-types";
 import DateTimeFormatOptions = Intl.DateTimeFormatOptions;
 import DateTimeFormat = Intl.DateTimeFormat;
@@ -197,12 +198,16 @@ export const getLocalDayOfWeek = (
   format?: "long" | "short" | "narrow" | undefined
 ) => {
   let bottomValue = getCachedDateTimeFormat(locale, {
-    weekday: format,
+    // weekday: undefined,
+    day: "2-digit",
+    // month: undefined,
   }).format(date);
-  bottomValue = bottomValue.replace(
-    bottomValue[0],
-    bottomValue[0].toLocaleUpperCase()
-  );
+  // bottomValue = bottomValue.replace(
+  //   bottomValue[0],
+  //   // bottomValue[0].toLocaleUpperCase()
+  //   ""
+  // );
+  bottomValue = bottomValue.toString().split(",")[0];
   return bottomValue;
 };
 

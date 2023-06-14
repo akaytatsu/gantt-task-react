@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { ReactChild } from "react";
 import { ViewMode } from "../../types/public-types";
 import { TopPartOfCalendar } from "./top-part-of-calendar";
@@ -225,6 +226,8 @@ export const Calendar: React.FC<CalendarProps> = ({
         .getDate()
         .toString()}`;
 
+      let bottomValueModified = bottomValue.split(",")[0].trim();
+
       bottomValues.push(
         <text
           key={date.getTime()}
@@ -232,7 +235,7 @@ export const Calendar: React.FC<CalendarProps> = ({
           x={columnWidth * i + columnWidth * 0.5}
           className={styles.calendarBottomText}
         >
-          {bottomValue}
+          {bottomValueModified}
         </text>
       );
       if (
